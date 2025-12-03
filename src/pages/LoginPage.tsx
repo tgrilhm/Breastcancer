@@ -183,7 +183,7 @@ export function LoginPage({ onLogin, onNavigate }: LoginPageProps) {
           </div>
 
           {error && (
-            <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl flex items-start gap-3">
+            <div className="mb-6 p-4 bg-red-50 border-2 border-red-200 rounded-xl flex items-start gap-3">
               <AlertCircle className="text-red-600 flex-shrink-0 mt-0.5" size={20} />
               <p className="text-sm text-red-800">{error}</p>
             </div>
@@ -249,7 +249,7 @@ export function LoginPage({ onLogin, onNavigate }: LoginPageProps) {
                 />
                 <span className="text-sm text-gray-700">Remember me</span>
               </label>
-              <button type="button" className="text-sm text-blue-600 hover:text-blue-800 hover:underline">
+              <button type="button" className="text-sm text-blue-600 hover:text-blue-800 hover:underline transition-all">
                 Forgot Password?
               </button>
             </div>
@@ -286,7 +286,7 @@ export function LoginPage({ onLogin, onNavigate }: LoginPageProps) {
 
           <div className="relative my-8">
             <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-gray-200"></div>
+              <div className="w-full border-t border-blue-100"></div>
             </div>
             <div className="relative flex justify-center text-sm">
               <span className="px-4 bg-white text-gray-500">New to MedVision?</span>
@@ -298,6 +298,7 @@ export function LoginPage({ onLogin, onNavigate }: LoginPageProps) {
             className="w-full border-2 border-blue-600 text-blue-600 hover:bg-blue-50 py-3 px-6 rounded-xl transition-colors"
           >
             Create an Account
+            Create an Account
           </button>
 
           <div className="mt-6 p-4 bg-blue-50 rounded-xl border border-blue-100">
@@ -305,11 +306,13 @@ export function LoginPage({ onLogin, onNavigate }: LoginPageProps) {
             <div className="space-y-1">
               <div className="flex items-center gap-2 text-xs text-blue-700">
                 <div className="w-2 h-2 rounded-full bg-blue-500"></div>
-                <span>Patient: patient@example.com</span>
+                <span className="font-medium">Patient:</span>
+                <span>patient@example.com</span>
               </div>
               <div className="flex items-center gap-2 text-xs text-blue-700">
                 <div className="w-2 h-2 rounded-full bg-pink-500"></div>
-                <span>Doctor: doctor@example.com</span>
+                <span className="font-medium">Doctor:</span>
+                <span>doctor@example.com</span>
               </div>
             </div>
           </div>
