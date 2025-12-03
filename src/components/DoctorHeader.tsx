@@ -1,3 +1,4 @@
+import React from 'react';
 import { LogOut, Bell } from 'lucide-react';
 
 interface DoctorHeaderProps {

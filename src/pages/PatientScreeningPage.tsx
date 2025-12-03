@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState } from 'react';
 import { Header } from '../components/Header';
 import { PatientSidebar } from '../components/PatientSidebar';
@@ -102,9 +103,10 @@ export function PatientScreeningPage({ onLogout, onNavigate }: PatientScreeningP
     const newErrors: Record<string, string> = {};
     
     Object.entries(medicalData).forEach(([key, value]) => {
-      if (!value.trim()) {
+      const strValue = value as string;
+      if (!strValue.trim()) {
         newErrors[key] = 'Required';
-      } else if (!validateNumber(value, 0)) {
+      } else if (!validateNumber(strValue, 0)) {
         newErrors[key] = 'Must be a positive number';
       }
     });

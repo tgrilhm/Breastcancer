@@ -1,5 +1,6 @@
+import React from 'react';
 import { LogOut, User, Bell } from 'lucide-react';
-import logoImage from 'figma:asset/2e11abbf4aa9a74ca76cc202d87347218d0c5332.png';
+import logoImage from '../assets/logo.png';
 
 interface HeaderProps {
   onLogout: () => void;

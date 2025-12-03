@@ -1,3 +1,4 @@
+import React from 'react';
 import { Header } from '../components/Header';
 import { PatientSidebar } from '../components/PatientSidebar';
 import { HealthTipCarousel } from '../components/HealthTipCarousel';

@@ -1,9 +1,10 @@
+import React from 'react';
 import { useState } from 'react';
 import { Header } from '../components/Header';
 import { DoctorHeader } from '../components/DoctorHeader';
 import { PatientSidebar } from '../components/PatientSidebar';
 import { DoctorSidebar } from '../components/DoctorSidebar';
-import { Camera, Save, Shield, Activity, Mail, Phone, MapPin, Calendar } from 'lucide-react';
+import { Camera, Save, Mail, Phone, MapPin, Calendar } from 'lucide-react';
 import { PageType, UserRole } from '../App';
 
 interface ProfilePageProps {
@@ -23,8 +24,6 @@ export function ProfilePage({ userRole, onLogout, onNavigate }: ProfilePageProps
     specialty: 'Breast Imaging Specialist',
     licenseNumber: 'MD-CA-123456',
     hospital: 'Medical Center Downtown',
-    bio: 'Specialized in breast imaging with over 10 years of experience in early cancer detection.',
-    insurance: 'Blue Cross Blue Shield',
     emergencyContact: 'John Johnson',
     emergencyPhone: '+1 (555) 987-6543',
   });
@@ -34,13 +33,6 @@ export function ProfilePage({ userRole, onLogout, onNavigate }: ProfilePageProps
     setIsEditing(false);
     // Handle save logic
   };
-
-  const activityLog = [
-    { id: 1, action: 'Logged in', timestamp: '2024-11-28 09:30 AM', location: 'San Francisco, CA' },
-    { id: 2, action: 'Updated profile information', timestamp: '2024-11-25 02:15 PM', location: 'San Francisco, CA' },
-    { id: 3, action: 'Viewed patient case', timestamp: '2024-11-24 11:45 AM', location: 'San Francisco, CA' },
-    { id: 4, action: 'Changed password', timestamp: '2024-11-20 04:30 PM', location: 'San Francisco, CA' },
-  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-pink-50">
@@ -112,32 +104,6 @@ export function ProfilePage({ userRole, onLogout, onNavigate }: ProfilePageProps
                   </div>
                 </div>
 
-                {/* Security Badge */}
-                <div className="bg-white rounded-2xl shadow-md border border-blue-100 p-6 mt-6">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center">
-                      <Shield className="text-green-600" size={24} />
-                    </div>
-                    <div>
-                      <h3 className="text-blue-900">Account Verified</h3>
-                      <p className="text-sm text-blue-600">All security checks passed</p>
-                    </div>
-                  </div>
-                  <div className="space-y-2 text-sm">
-                    <div className="flex items-center justify-between">
-                      <span className="text-blue-700">Email Verified</span>
-                      <span className="text-green-600">✓</span>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-blue-700">Phone Verified</span>
-                      <span className="text-green-600">✓</span>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-blue-700">2FA Enabled</span>
-                      <span className="text-green-600">✓</span>
-                    </div>
-                  </div>
-                </div>
               </div>
 
               {/* Profile Information */}
@@ -256,18 +222,6 @@ export function ProfilePage({ userRole, onLogout, onNavigate }: ProfilePageProps
                           />
                         </div>
 
-                        <div>
-                          <label className="block text-sm text-blue-900 mb-2">Professional Bio</label>
-                          <textarea
-                            value={profileData.bio}
-                            onChange={(e) => setProfileData({ ...profileData, bio: e.target.value })}
-                            disabled={!isEditing}
-                            rows={4}
-                            className={`w-full px-4 py-3 border border-blue-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                              !isEditing ? 'bg-gray-50' : ''
-                            }`}
-                          />
-                        </div>
                       </>
                     ) : (
                       <>
@@ -299,18 +253,6 @@ export function ProfilePage({ userRole, onLogout, onNavigate }: ProfilePageProps
                           </div>
                         </div>
 
-                        <div>
-                          <label className="block text-sm text-blue-900 mb-2">Insurance Provider</label>
-                          <input
-                            type="text"
-                            value={profileData.insurance}
-                            onChange={(e) => setProfileData({ ...profileData, insurance: e.target.value })}
-                            disabled={!isEditing}
-                            className={`w-full px-4 py-3 border border-blue-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                              !isEditing ? 'bg-gray-50' : ''
-                            }`}
-                          />
-                        </div>
                       </>
                     )}
 
@@ -335,34 +277,6 @@ export function ProfilePage({ userRole, onLogout, onNavigate }: ProfilePageProps
                   </form>
                 </div>
 
-                {/* Activity Log */}
-                <div className="bg-white rounded-2xl shadow-md border border-blue-100 p-6">
-                  <div className="flex items-center gap-3 mb-4">
-                    <Activity className="text-blue-600" size={24} />
-                    <h3 className="text-blue-900">Recent Activity</h3>
-                  </div>
-                  
-                  <div className="space-y-3">
-                    {activityLog.map((log) => (
-                      <div key={log.id} className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg">
-                        <div className="w-2 h-2 rounded-full bg-blue-600 mt-2"></div>
-                        <div className="flex-1">
-                          <p className="text-blue-900">{log.action}</p>
-                          <div className="flex items-center gap-3 text-sm text-blue-600 mt-1">
-                            <span className="flex items-center gap-1">
-                              <Calendar size={14} />
-                              {log.timestamp}
-                            </span>
-                            <span className="flex items-center gap-1">
-                              <MapPin size={14} />
-                              {log.location}
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
               </div>
             </div>
           </div>

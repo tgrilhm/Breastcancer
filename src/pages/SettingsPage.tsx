@@ -1,9 +1,10 @@
+import React from 'react';
 import { useState } from 'react';
 import { Header } from '../components/Header';
 import { DoctorHeader } from '../components/DoctorHeader';
 import { PatientSidebar } from '../components/PatientSidebar';
 import { DoctorSidebar } from '../components/DoctorSidebar';
-import { Globe, Bell, Lock, Eye, EyeOff, CreditCard, Trash2, AlertTriangle } from 'lucide-react';
+import { Bell, Lock, Trash2, AlertTriangle } from 'lucide-react';
 import { PageType, UserRole } from '../App';
 
 interface SettingsPageProps {
@@ -14,17 +15,11 @@ interface SettingsPageProps {
 
 export function SettingsPage({ userRole, onLogout, onNavigate }: SettingsPageProps) {
   const [settings, setSettings] = useState({
-    language: 'en',
-    timezone: 'PST',
     emailNotifications: true,
-    smsNotifications: false,
     appNotifications: true,
     appointmentReminders: true,
     resultsNotifications: true,
     marketingEmails: false,
-    dataSharing: true,
-    profileVisibility: 'private',
-    twoFactorAuth: true,
   });
 
   const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -69,44 +64,6 @@ export function SettingsPage({ userRole, onLogout, onNavigate }: SettingsPagePro
             </div>
 
             <div className="space-y-6">
-              {/* General Settings */}
-              <div className="bg-white rounded-2xl shadow-md border border-blue-100 p-6">
-                <div className="flex items-center gap-3 mb-6">
-                  <Globe className="text-blue-600" size={24} />
-                  <h2 className="text-blue-900">General Settings</h2>
-                </div>
-
-                <div className="space-y-4">
-                  <div>
-                    <label className="block text-sm text-blue-900 mb-2">Language</label>
-                    <select
-                      value={settings.language}
-                      onChange={(e) => setSettings({ ...settings, language: e.target.value })}
-                      className="w-full px-4 py-3 border border-blue-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    >
-                      <option value="en">English</option>
-                      <option value="es">Español</option>
-                      <option value="fr">Français</option>
-                      <option value="de">Deutsch</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm text-blue-900 mb-2">Timezone</label>
-                    <select
-                      value={settings.timezone}
-                      onChange={(e) => setSettings({ ...settings, timezone: e.target.value })}
-                      className="w-full px-4 py-3 border border-blue-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    >
-                      <option value="PST">Pacific Time (PST)</option>
-                      <option value="MST">Mountain Time (MST)</option>
-                      <option value="CST">Central Time (CST)</option>
-                      <option value="EST">Eastern Time (EST)</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-
               {/* Notification Preferences */}
               <div className="bg-white rounded-2xl shadow-md border border-blue-100 p-6">
                 <div className="flex items-center gap-3 mb-6">
@@ -125,22 +82,6 @@ export function SettingsPage({ userRole, onLogout, onNavigate }: SettingsPagePro
                         type="checkbox"
                         checked={settings.emailNotifications}
                         onChange={(e) => setSettings({ ...settings, emailNotifications: e.target.checked })}
-                        className="sr-only peer"
-                      />
-                      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
-                    </label>
-                  </div>
-
-                  <div className="flex items-center justify-between p-4 bg-blue-50 rounded-xl">
-                    <div>
-                      <p className="text-blue-900">SMS Notifications</p>
-                      <p className="text-sm text-blue-600">Receive text message alerts</p>
-                    </div>
-                    <label className="relative inline-flex items-center cursor-pointer">
-                      <input
-                        type="checkbox"
-                        checked={settings.smsNotifications}
-                        onChange={(e) => setSettings({ ...settings, smsNotifications: e.target.checked })}
                         className="sr-only peer"
                       />
                       <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
@@ -263,85 +204,8 @@ export function SettingsPage({ userRole, onLogout, onNavigate }: SettingsPagePro
                     </form>
                   )}
 
-                  <div className="flex items-center justify-between p-4 bg-blue-50 rounded-xl">
-                    <div>
-                      <p className="text-blue-900">Two-Factor Authentication (2FA)</p>
-                      <p className="text-sm text-blue-600">Add an extra layer of security</p>
-                    </div>
-                    <label className="relative inline-flex items-center cursor-pointer">
-                      <input
-                        type="checkbox"
-                        checked={settings.twoFactorAuth}
-                        onChange={(e) => setSettings({ ...settings, twoFactorAuth: e.target.checked })}
-                        className="sr-only peer"
-                      />
-                      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
-                    </label>
-                  </div>
                 </div>
               </div>
-
-              {/* Privacy Settings */}
-              <div className="bg-white rounded-2xl shadow-md border border-blue-100 p-6">
-                <div className="flex items-center gap-3 mb-6">
-                  <Eye className="text-blue-600" size={24} />
-                  <h2 className="text-blue-900">Privacy Settings</h2>
-                </div>
-
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between p-4 bg-blue-50 rounded-xl">
-                    <div>
-                      <p className="text-blue-900">Data Sharing for Research</p>
-                      <p className="text-sm text-blue-600">Help improve AI models (anonymized)</p>
-                    </div>
-                    <label className="relative inline-flex items-center cursor-pointer">
-                      <input
-                        type="checkbox"
-                        checked={settings.dataSharing}
-                        onChange={(e) => setSettings({ ...settings, dataSharing: e.target.checked })}
-                        className="sr-only peer"
-                      />
-                      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
-                    </label>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm text-blue-900 mb-2">Profile Visibility</label>
-                    <select
-                      value={settings.profileVisibility}
-                      onChange={(e) => setSettings({ ...settings, profileVisibility: e.target.value })}
-                      className="w-full px-4 py-3 border border-blue-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    >
-                      <option value="private">Private (Only visible to assigned doctors)</option>
-                      <option value="network">Network (Visible to medical professionals in your network)</option>
-                      <option value="public">Public (Visible in doctor search)</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-
-              {/* Subscription/Billing (if applicable) */}
-              {userRole === 'patient' && (
-                <div className="bg-white rounded-2xl shadow-md border border-blue-100 p-6">
-                  <div className="flex items-center gap-3 mb-6">
-                    <CreditCard className="text-blue-600" size={24} />
-                    <h2 className="text-blue-900">Subscription & Billing</h2>
-                  </div>
-
-                  <div className="bg-gradient-to-br from-blue-50 to-pink-50 rounded-xl p-6 mb-4">
-                    <div className="flex items-center justify-between mb-4">
-                      <div>
-                        <h3 className="text-blue-900 mb-1">Free Plan</h3>
-                        <p className="text-sm text-blue-600">Basic screening features</p>
-                      </div>
-                      <span className="px-4 py-2 bg-blue-600 text-white rounded-lg">Active</span>
-                    </div>
-                    <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl transition-colors">
-                      Upgrade to Premium
-                    </button>
-                  </div>
-                </div>
-              )}
 
               {/* Danger Zone */}
               <div className="bg-white rounded-2xl shadow-md border border-red-200 p-6">

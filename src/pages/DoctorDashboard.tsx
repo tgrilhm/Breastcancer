@@ -1,3 +1,4 @@
+import React from 'react';
 import { DoctorHeader } from '../components/DoctorHeader';
 import { DoctorSidebar } from '../components/DoctorSidebar';
 import { StatsCards } from '../components/StatsCards';
