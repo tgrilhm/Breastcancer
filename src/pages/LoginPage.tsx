@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { Eye, EyeOff, Mail, Lock, ArrowRight, AlertCircle, Brain, Shield, Users } from 'lucide-react';
+import { Eye, EyeOff, Mail, Lock, ArrowRight, AlertCircle } from 'lucide-react';
 import { PageType, UserRole } from '../App';
+import logoImage from 'figma:asset/2e11abbf4aa9a74ca76cc202d87347218d0c5332.png';
 
 interface LoginPageProps {
   onLogin: (role: UserRole) => void;
@@ -46,136 +47,121 @@ export function LoginPage({ onLogin, onNavigate }: LoginPageProps) {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-pink-50 flex items-center justify-center p-6">
-      <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-        {/* Left Side - Enhanced Branding & Features */}
-        <div className="hidden lg:flex flex-col justify-center relative">
-          {/* Decorative Background */}
-          <div className="absolute inset-0 opacity-5">
-            <div className="absolute top-0 left-0 w-64 h-64 bg-blue-500 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-0 right-0 w-64 h-64 bg-pink-500 rounded-full blur-3xl"></div>
-          </div>
-
-          <div className="relative z-10">
-            {/* Logo & Branding */}
-            <div className="mb-12">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="relative w-16 h-16">
-                  <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-lg">
-                    <ellipse cx="50" cy="50" rx="45" ry="25" fill="#3B82F6" opacity="0.2"/>
-                    <ellipse cx="50" cy="50" rx="35" ry="20" fill="#3B82F6" opacity="0.3"/>
-                    <circle cx="50" cy="50" r="12" fill="#1E40AF"/>
-                    <circle cx="52" cy="48" r="4" fill="white"/>
-                    <path d="M 70 35 Q 75 25 80 30 Q 85 35 80 40 Q 75 45 70 50 Q 75 55 80 60 Q 85 65 80 70 Q 75 75 70 65" 
-                          fill="none" stroke="#EC4899" strokeWidth="3" strokeLinecap="round"/>
-                    <circle cx="80" cy="30" r="2" fill="#EC4899"/>
-                    <circle cx="80" cy="70" r="2" fill="#EC4899"/>
-                  </svg>
-                </div>
-                <div>
-                  <h1 className="text-blue-900 mb-1">MedVision</h1>
-                  <p className="text-sm text-blue-600">Breast Cancer Screening Platform</p>
-                </div>
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-6">
+      <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        {/* Left Side - Branding & Features */}
+        <div className="hidden lg:flex flex-col justify-center">
+          <div className="space-y-8">
+            {/* Logo & Title */}
+            <div className="flex items-center gap-4">
+              <img 
+                src={logoImage} 
+                alt="MedVision AI Logo" 
+                className="w-16 h-16 object-contain"
+              />
+              <div>
+                <h1 className="text-blue-600 mb-1 text-2xl">MedVision AI</h1>
+                <p className="text-sm text-gray-600">Intelligent Breast Cancer Screening Platform</p>
               </div>
-              
-              <h2 className="text-blue-900 mb-3 leading-tight">
-                Your AI-Powered<br />Breast Health Companion
-              </h2>
-              <p className="text-blue-600 text-lg">
+            </div>
+
+            {/* Subtitle */}
+            <div>
+              <h2 className="text-gray-800 mb-3">Your Personal Breast Cancer Screening Detection Platform</h2>
+              <p className="text-blue-600 leading-relaxed">
                 Advanced machine learning technology for accurate, reliable breast cancer screening and early detection.
               </p>
             </div>
 
             {/* Feature Cards */}
             <div className="space-y-4">
-              {/* Feature 1 */}
-              <div className="group bg-white rounded-2xl p-5 shadow-md border border-blue-100 hover:shadow-xl hover:border-blue-300 transition-all duration-300 cursor-pointer">
+              {/* Feature 1 - Evidence-Based */}
+              <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-200">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-lg">
-                    <Brain className="text-white" size={24} />
+                  <div className="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center flex-shrink-0">
+                    <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-blue-900 mb-1">Advanced AI Analysis</h3>
-                    <p className="text-sm text-blue-600">
-                      State-of-the-art machine learning algorithms trained on millions of data points for accurate screening
+                    <h3 className="text-gray-800 mb-2">Evidence-Based Analysis</h3>
+                    <p className="text-sm text-blue-600 leading-relaxed">
+                      Uses a machine learning model trained on real clinical data to help distinguish between benign and malignant cases.
                     </p>
                   </div>
                 </div>
               </div>
 
-              {/* Feature 2 */}
-              <div className="group bg-white rounded-2xl p-5 shadow-md border border-blue-100 hover:shadow-xl hover:border-pink-300 transition-all duration-300 cursor-pointer">
+              {/* Feature 2 - Privacy */}
+              <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-200">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-pink-500 to-pink-600 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-lg">
-                    <Shield className="text-white" size={24} />
+                  <div className="w-12 h-12 rounded-full bg-pink-500 flex items-center justify-center flex-shrink-0">
+                    <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                    </svg>
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-blue-900 mb-1">Secure & Compliant</h3>
-                    <p className="text-sm text-blue-600">
-                      HIPAA compliant with enterprise-grade encryption and security protocols to protect your data
+                    <h3 className="text-gray-800 mb-2">Your Privacy Matters</h3>
+                    <p className="text-sm text-blue-600 leading-relaxed">
+                      All data you enter is processed locally and not stored or shared. This tool is designed for educational use with your privacy in mind.
                     </p>
                   </div>
                 </div>
               </div>
 
-              {/* Feature 3 */}
-              <div className="group bg-white rounded-2xl p-5 shadow-md border border-blue-100 hover:shadow-xl hover:border-purple-300 transition-all duration-300 cursor-pointer">
+              {/* Feature 3 - Instant Results */}
+              <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-200">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-lg">
-                    <Users className="text-white" size={24} />
+                  <div className="w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center flex-shrink-0">
+                    <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-blue-900 mb-1">Real-time Collaboration</h3>
-                    <p className="text-sm text-blue-600">
-                      Seamlessly connect with board-certified specialists and get expert consultation instantly
+                    <h3 className="text-gray-800 mb-2">Get Your Results Instantly</h3>
+                    <p className="text-sm text-blue-600 leading-relaxed">
+                      Input your clinical measurements and receive an immediate prediction. No waiting, no appointments, just fast insight to help guide your next steps.
                     </p>
                   </div>
                 </div>
               </div>
-            </div>
-
-            {/* Trust Badge */}
-            <div className="mt-8 p-4 bg-gradient-to-r from-blue-50 to-pink-50 rounded-xl border border-blue-100">
-              <p className="text-sm text-blue-700 text-center">
-                <span className="text-blue-900">Trusted by healthcare professionals worldwide</span>
-                <br />
-                <span className="text-blue-600">99.2% accuracy rate • 1M+ screenings performed</span>
-              </p>
             </div>
           </div>
         </div>
 
         {/* Right Side - Login Form */}
-        <div className="bg-white rounded-2xl shadow-2xl border border-blue-100 p-8">
-          <div className="lg:hidden flex items-center gap-3 mb-6">
-            <div className="relative w-12 h-12">
-              <svg viewBox="0 0 100 100" className="w-full h-full">
-                <ellipse cx="50" cy="50" rx="45" ry="25" fill="#3B82F6" opacity="0.2"/>
-                <circle cx="50" cy="50" r="12" fill="#1E40AF"/>
-                <circle cx="52" cy="48" r="4" fill="white"/>
-              </svg>
+        <div className="bg-white rounded-3xl shadow-xl border border-gray-200 p-10">
+          {/* Mobile Logo */}
+          <div className="lg:hidden flex items-center gap-3 mb-8">
+            <img 
+              src={logoImage} 
+              alt="MedVision Logo" 
+              className="w-12 h-12 object-contain"
+            />
+            <div>
+              <h1 className="text-blue-600">MedVision</h1>
+              <p className="text-xs text-blue-600">Intelligent Breast Cancer Screening Platform</p>
             </div>
-            <h1 className="text-blue-900">MedVision</h1>
           </div>
 
           <div className="mb-8">
-            <h2 className="text-blue-900 mb-2">Sign In to Your Account</h2>
+            <h2 className="text-gray-800 mb-2">Sign In to Your Account</h2>
             <p className="text-blue-600">Enter your credentials to access the platform</p>
           </div>
 
           {error && (
-            <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl flex items-start gap-3 animate-shake">
+            <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl flex items-start gap-3">
               <AlertCircle className="text-red-600 flex-shrink-0 mt-0.5" size={20} />
               <p className="text-sm text-red-800">{error}</p>
             </div>
           )}
 
-          <form onSubmit={handleSubmit} className="space-y-5">
+          <form onSubmit={handleSubmit} className="space-y-6">
             {/* Email Field */}
             <div>
-              <label className="block text-sm text-blue-900 mb-2">Email Address *</label>
+              <label className="block text-sm text-gray-700 mb-2">Email Address *</label>
               <div className="relative">
-                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-blue-400" size={20} />
+                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-blue-500" size={20} />
                 <input
                   type="email"
                   value={email}
@@ -183,7 +169,7 @@ export function LoginPage({ onLogin, onNavigate }: LoginPageProps) {
                     setEmail(e.target.value);
                     setError('');
                   }}
-                  className="w-full pl-12 pr-4 py-3 border border-blue-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                  className="w-full pl-12 pr-4 py-3.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-gray-800 placeholder:text-gray-400"
                   placeholder="your.email@example.com"
                   required
                 />
@@ -192,9 +178,9 @@ export function LoginPage({ onLogin, onNavigate }: LoginPageProps) {
 
             {/* Password Field */}
             <div>
-              <label className="block text-sm text-blue-900 mb-2">Password *</label>
+              <label className="block text-sm text-gray-700 mb-2">Password *</label>
               <div className="relative">
-                <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-blue-400" size={20} />
+                <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-blue-500" size={20} />
                 <input
                   type={showPassword ? 'text' : 'password'}
                   value={password}
@@ -202,14 +188,14 @@ export function LoginPage({ onLogin, onNavigate }: LoginPageProps) {
                     setPassword(e.target.value);
                     setError('');
                   }}
-                  className="w-full pl-12 pr-12 py-3 border border-blue-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                  className="w-full pl-12 pr-12 py-3.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-gray-800 placeholder:text-gray-400"
                   placeholder="••••••••"
                   required
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-blue-400 hover:text-blue-600 transition-colors"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-blue-500 hover:text-blue-700 transition-colors"
                 >
                   {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
                 </button>
@@ -219,10 +205,13 @@ export function LoginPage({ onLogin, onNavigate }: LoginPageProps) {
             {/* Remember Me & Forgot Password */}
             <div className="flex items-center justify-between">
               <label className="flex items-center gap-2 cursor-pointer group">
-                <input type="checkbox" className="w-4 h-4 text-blue-600 rounded border-blue-300 focus:ring-blue-500 transition-all" />
-                <span className="text-sm text-blue-700 group-hover:text-blue-900 transition-colors">Remember me</span>
+                <input 
+                  type="checkbox" 
+                  className="w-4 h-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500 cursor-pointer" 
+                />
+                <span className="text-sm text-gray-700 group-hover:text-gray-900">Remember me</span>
               </label>
-              <button type="button" className="text-sm text-blue-600 hover:text-blue-800 hover:underline transition-all">
+              <button type="button" className="text-sm text-blue-600 hover:text-blue-800 hover:underline">
                 Forgot Password?
               </button>
             </div>
@@ -231,7 +220,7 @@ export function LoginPage({ onLogin, onNavigate }: LoginPageProps) {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full bg-gradient-to-r from-blue-600 to-pink-600 hover:from-blue-700 hover:to-pink-700 disabled:from-blue-400 disabled:to-pink-400 text-white py-3 px-6 rounded-xl transition-all flex items-center justify-center gap-2 group shadow-lg hover:shadow-xl"
+              className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 disabled:from-blue-400 disabled:to-purple-400 text-white py-3.5 px-6 rounded-lg transition-all flex items-center justify-center gap-2 group shadow-md hover:shadow-lg"
             >
               {isLoading ? (
                 <>
@@ -247,31 +236,36 @@ export function LoginPage({ onLogin, onNavigate }: LoginPageProps) {
             </button>
           </form>
 
-          {/* Sign Up Link */}
-          <div className="mt-6 text-center pt-6 border-t border-blue-100">
-            <p className="text-blue-600">
-              Don't have an account?{' '}
-              <button
-                onClick={() => onNavigate('signup')}
-                className="text-blue-700 hover:text-blue-900 hover:underline transition-all"
-              >
-                Create Account
-              </button>
-            </p>
+          {/* Divider */}
+          <div className="relative my-8">
+            <div className="absolute inset-0 flex items-center">
+              <div className="w-full border-t border-gray-200"></div>
+            </div>
+            <div className="relative flex justify-center text-sm">
+              <span className="px-4 bg-white text-gray-600">Don't have an account?</span>
+            </div>
           </div>
 
+          {/* Sign Up Link */}
+          <button
+            onClick={() => onNavigate('signup')}
+            className="w-full text-blue-600 hover:text-blue-800 py-3 text-center transition-colors"
+          >
+            Create Account
+          </button>
+
           {/* Demo Credentials */}
-          <div className="mt-4 p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl border border-blue-100">
-            <p className="text-xs text-blue-700 mb-2">Demo Credentials:</p>
-            <div className="space-y-1">
-              <p className="text-xs text-blue-600 flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-blue-400"></span>
-                Patient: patient@example.com
-              </p>
-              <p className="text-xs text-blue-600 flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-pink-400"></span>
-                Doctor: doctor@example.com
-              </p>
+          <div className="mt-8 p-5 bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl border border-blue-100">
+            <p className="text-xs text-gray-700 mb-3">Demo Credentials:</p>
+            <div className="space-y-2">
+              <div className="flex items-center gap-2 text-xs text-blue-700">
+                <div className="w-2 h-2 rounded-full bg-blue-500"></div>
+                <span>Patient: patient@example.com</span>
+              </div>
+              <div className="flex items-center gap-2 text-xs text-blue-700">
+                <div className="w-2 h-2 rounded-full bg-pink-500"></div>
+                <span>Doctor: doctor@example.com</span>
+              </div>
             </div>
           </div>
         </div>

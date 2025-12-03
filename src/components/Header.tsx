@@ -1,4 +1,5 @@
 import { LogOut, User, Bell } from 'lucide-react';
+import logoImage from 'figma:asset/2e11abbf4aa9a74ca76cc202d87347218d0c5332.png';
 
 interface HeaderProps {
   onLogout: () => void;
@@ -11,25 +12,14 @@ export function Header({ onLogout, userName = 'Sarah Johnson' }: HeaderProps) {
       <div className="px-6 py-4 flex items-center justify-between">
         {/* Logo Section */}
         <div className="flex items-center gap-3">
-          <div className="relative w-10 h-10">
-            {/* Eye with Pink Ribbon Logo */}
-            <svg viewBox="0 0 100 100" className="w-full h-full">
-              {/* Eye */}
-              <ellipse cx="50" cy="50" rx="45" ry="25" fill="#3B82F6" opacity="0.2"/>
-              <ellipse cx="50" cy="50" rx="35" ry="20" fill="#3B82F6" opacity="0.3"/>
-              <circle cx="50" cy="50" r="12" fill="#1E40AF"/>
-              <circle cx="52" cy="48" r="4" fill="white"/>
-              
-              {/* Pink Ribbon Accent */}
-              <path d="M 70 35 Q 75 25 80 30 Q 85 35 80 40 Q 75 45 70 50 Q 75 55 80 60 Q 85 65 80 70 Q 75 75 70 65" 
-                    fill="none" stroke="#EC4899" strokeWidth="3" strokeLinecap="round"/>
-              <circle cx="80" cy="30" r="2" fill="#EC4899"/>
-              <circle cx="80" cy="70" r="2" fill="#EC4899"/>
-            </svg>
-          </div>
+          <img 
+            src={logoImage} 
+            alt="MedVision AI Logo" 
+            className="w-12 h-12 object-contain"
+          />
           <div>
-            <h1 className="text-blue-900">MedVision</h1>
-            <p className="text-xs text-blue-600">Breast Cancer Screening Platform</p>
+            <h1 className="text-blue-600">MedVision AI</h1>
+            <p className="text-xs text-gray-600">Intelligent Breast Cancer Screening Platform</p>
           </div>
         </div>
         
@@ -41,7 +31,7 @@ export function Header({ onLogout, userName = 'Sarah Johnson' }: HeaderProps) {
           </button>
           
           <div className="flex items-center gap-3 pl-4 border-l border-blue-100">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-pink-400 flex items-center justify-center text-white">
+            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-pink-400 flex items-center justify-center text-white shadow-md">
               <User size={20} />
             </div>
             <div className="hidden sm:block">
