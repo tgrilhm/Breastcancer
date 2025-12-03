@@ -1,5 +1,5 @@
 import { LogOut, User, Bell } from 'lucide-react';
-import logoImage from 'figma:asset/2e11abbf4aa9a74ca76cc202d87347218d0c5332.png';
+import logoImage from 'figma:asset/e2c4d4e1abf2de2789813e174f4e7001b28dcd00.png';
 
 interface HeaderProps {
   onLogout: () => void;
@@ -14,12 +14,12 @@ export function Header({ onLogout, userName = 'Sarah Johnson' }: HeaderProps) {
         <div className="flex items-center gap-3">
           <img 
             src={logoImage} 
-            alt="MedVision AI Logo" 
-            className="w-12 h-12 object-contain"
+            alt="MedVision Logo" 
+            className="w-12 h-12 object-contain" 
+            style={{ mixBlendMode: 'multiply' }}
           />
           <div>
-            <h1 className="text-blue-600">MedVision AI</h1>
-            <p className="text-xs text-gray-600">Intelligent Breast Cancer Screening Platform</p>
+            <h1 className="text-blue-900">MedVision</h1>
           </div>
         </div>
         
