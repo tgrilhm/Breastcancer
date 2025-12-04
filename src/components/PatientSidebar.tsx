@@ -27,22 +27,20 @@ export function PatientSidebar({ onNavigate, activePage }: PatientSidebarProps) 
               <li key={item.id}>
                 <button
                   onClick={() => onNavigate(item.id)}
-                  className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
-                    item.highlight && !isActive
-                      ? 'bg-gradient-to-r from-pink-500 to-pink-600 text-white shadow-md hover:from-pink-600 hover:to-pink-700'
+                  className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${item.highlight && !isActive
+                      ? 'bg-pink-500 text-white shadow-md hover:bg-pink-600'
                       : isActive
-                      ? 'bg-blue-600 text-white shadow-md'
-                      : 'text-blue-700 hover:bg-blue-50'
-                  }`}
+                        ? 'bg-blue-600 text-white shadow-md'
+                        : 'text-blue-700 hover:bg-blue-50'
+                    }`}
                 >
                   <Icon size={20} />
                   <span className="flex-1 text-left">{item.label}</span>
                   {item.badge && (
-                    <span className={`px-2 py-0.5 rounded-full text-xs ${
-                      isActive || item.highlight
-                        ? 'bg-white/20 text-white' 
+                    <span className={`px-2 py-0.5 rounded-full text-xs ${isActive || item.highlight
+                        ? 'bg-white/20 text-white'
                         : 'bg-pink-500 text-white'
-                    }`}>
+                      }`}>
                       {item.badge}
                     </span>
                   )}
@@ -52,7 +50,7 @@ export function PatientSidebar({ onNavigate, activePage }: PatientSidebarProps) 
           })}
         </ul>
       </nav>
-      
+
       {/* Emergency Contact */}
       <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-blue-100">
         <div className="bg-gradient-to-br from-pink-500 to-pink-600 rounded-xl p-5 text-white shadow-md">
