@@ -298,7 +298,6 @@ export function LoginPage({ onLogin, onNavigate }: LoginPageProps) {
             className="w-full border-2 border-blue-600 text-blue-600 hover:bg-blue-50 py-3 px-6 rounded-xl transition-colors"
           >
             Create an Account
-            Create an Account
           </button>
 
           <div className="mt-6 p-4 bg-blue-50 rounded-xl border border-blue-100">

@@ -1,13 +1,12 @@
-
-import React, { useState } from 'react';
-import { AlertTriangle, CheckCircle, Eye, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useState } from 'react';
+import { AlertTriangle, CheckCircle, Clock, Eye, ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface Patient {
   id: string;
   name: string;
   patientId: string;
   dateUploaded: string;
-  status: 'high-risk' | 'low-risk';
+  status: 'high-risk' | 'low-risk' | 'pending';
   statusText: string;
 }
 
@@ -27,6 +26,14 @@ const patients: Patient[] = [
     dateUploaded: 'Oct 25, 2024',
     status: 'low-risk',
     statusText: 'AI: Low Risk (Benign Indicator)',
+  },
+  {
+    id: '3',
+    name: 'Ahmed Ali',
+    patientId: '#P-1026',
+    dateUploaded: 'Oct 24, 2024',
+    status: 'pending',
+    statusText: 'AI Analysis in Progress...',
   },
   {
     id: '4',
@@ -64,6 +71,8 @@ export function PatientTable() {
         return <AlertTriangle className="text-orange-500" size={18} />;
       case 'low-risk':
         return <CheckCircle className="text-green-500" size={18} />;
+      case 'pending':
+        return <Clock className="text-blue-500" size={18} />;
     }
   };
   
@@ -73,6 +82,8 @@ export function PatientTable() {
         return 'text-orange-700 bg-orange-50 border-orange-200';
       case 'low-risk':
         return 'text-green-700 bg-green-50 border-green-200';
+      case 'pending':
+        return 'text-blue-700 bg-blue-50 border-blue-200';
     }
   };
   
@@ -93,7 +104,10 @@ export function PatientTable() {
       );
     } else {
       return (
-        <button className="bg-white hover:bg-blue-50 text-blue-600 border border-blue-600 px-4 py-2 rounded-lg transition-colors flex items-center gap-2">
+        <button 
+          className="bg-gray-100 text-gray-400 px-4 py-2 rounded-lg cursor-not-allowed flex items-center gap-2"
+          disabled
+        >
           <Eye size={16} />
           View Details
         </button>

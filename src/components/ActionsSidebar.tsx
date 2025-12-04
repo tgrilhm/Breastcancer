@@ -1,4 +1,3 @@
-import React from 'react';
 import { Upload, Calendar, Star, MapPin } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { PageType } from '../App';

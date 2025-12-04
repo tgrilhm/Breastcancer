@@ -1,4 +1,3 @@
-import React from 'react';
 import { LayoutDashboard, Users, Calendar, MessageSquare, User, Settings } from 'lucide-react';
 import { PageType } from '../App';
 
