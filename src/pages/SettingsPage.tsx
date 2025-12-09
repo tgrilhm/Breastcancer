@@ -19,7 +19,6 @@ export function SettingsPage({ userRole, onLogout, onNavigate }: SettingsPagePro
     appNotifications: true,
     appointmentReminders: true,
     resultsNotifications: true,
-    marketingEmails: false,
   });
 
   const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -124,15 +123,6 @@ export function SettingsPage({ userRole, onLogout, onNavigate }: SettingsPagePro
                           className="w-4 h-4 text-blue-600 rounded"
                         />
                         <span className="text-blue-700">Test results notifications</span>
-                      </label>
-                      <label className="flex items-center gap-3 cursor-pointer">
-                        <input
-                          type="checkbox"
-                          checked={settings.marketingEmails}
-                          onChange={(e) => setSettings({ ...settings, marketingEmails: e.target.checked })}
-                          className="w-4 h-4 text-blue-600 rounded"
-                        />
-                        <span className="text-blue-700">Marketing and promotional emails</span>
                       </label>
                     </div>
                   </div>

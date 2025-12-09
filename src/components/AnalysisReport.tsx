@@ -25,7 +25,7 @@ export function AnalysisReport() {
           In Progress
         </span>
       </div>
-      
+
       {/* Status Section */}
       <div className="bg-gradient-to-br from-blue-50 to-pink-50 rounded-xl p-5 mb-6">
         <div className="flex items-start gap-4">
@@ -43,7 +43,7 @@ export function AnalysisReport() {
             </div>
           </div>
         </div>
-        
+
         {/* Progress Bar */}
         <div className="mt-4">
           <div className="flex justify-between text-sm text-blue-700 mb-2">
@@ -55,7 +55,7 @@ export function AnalysisReport() {
           </div>
         </div>
       </div>
-      
+
       {/* Visualization Section */}
       <div className="mb-4">
         <h3 className="text-blue-900 mb-4">AI Processing Activity</h3>
@@ -64,47 +64,47 @@ export function AnalysisReport() {
             <AreaChart data={analysisData}>
               <defs>
                 <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#3B82F6" stopOpacity={0.3}/>
-                  <stop offset="95%" stopColor="#EC4899" stopOpacity={0.1}/>
+                  <stop offset="5%" stopColor="#3B82F6" stopOpacity={0.3} />
+                  <stop offset="95%" stopColor="#EC4899" stopOpacity={0.1} />
                 </linearGradient>
               </defs>
               <CartesianGrid strokeDasharray="3 3" stroke="#E0E7FF" />
-              <XAxis 
-                dataKey="time" 
+              <XAxis
+                dataKey="time"
                 stroke="#6B7280"
                 style={{ fontSize: '12px' }}
               />
-              <YAxis 
+              <YAxis
                 stroke="#6B7280"
                 style={{ fontSize: '12px' }}
               />
-              <Tooltip 
-                contentStyle={{ 
+              <Tooltip
+                contentStyle={{
                   backgroundColor: 'white',
                   border: '1px solid #DBEAFE',
                   borderRadius: '8px',
                   boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
                 }}
               />
-              <Area 
-                type="monotone" 
-                dataKey="value" 
-                stroke="#3B82F6" 
+              <Area
+                type="monotone"
+                dataKey="value"
+                stroke="#3B82F6"
                 strokeWidth={2}
-                fill="url(#colorValue)" 
+                fill="url(#colorValue)"
               />
             </AreaChart>
           </ResponsiveContainer>
         </div>
       </div>
-      
+
       {/* Info Footer */}
       <div className="flex items-start gap-3 p-4 bg-blue-50 rounded-lg border border-blue-100">
         <div className="w-6 h-6 rounded-full bg-blue-500 flex items-center justify-center flex-shrink-0 text-white text-sm">
           i
         </div>
         <p className="text-sm text-blue-800">
-          Your results will be reviewed by our AI system and a certified radiologist. 
+          Your results will be reviewed by our AI system and a certified radiologist.
           You'll receive a notification once the analysis is complete, typically within 24-48 hours.
         </p>
       </div>

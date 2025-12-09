@@ -115,6 +115,8 @@ export function PatientTable() {
     }
   };
   
+  // Filter out patients with 'AI Analysis in Progress...'
+  const filteredPatients = patients.filter(p => p.statusText !== 'AI Analysis in Progress...');
   return (
     <div className="bg-white rounded-xl shadow-md border border-blue-100 overflow-hidden">
       {/* Table Header */}
@@ -132,11 +134,11 @@ export function PatientTable() {
               <th className="px-6 py-4 text-left text-sm text-blue-900">ID</th>
               <th className="px-6 py-4 text-left text-sm text-blue-900">Date Uploaded</th>
               <th className="px-6 py-4 text-left text-sm text-blue-900">AI Screening Status</th>
-              <th className="px-6 py-4 text-right text-sm text-blue-900">Action</th>
+              <th className="px-6 py-4 text-center text-sm text-blue-900">Action</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-blue-100">
-            {patients.map((patient) => (
+            {filteredPatients.map((patient) => (
               <tr 
                 key={patient.id} 
                 className="hover:bg-blue-50/50 transition-colors"
@@ -162,7 +164,7 @@ export function PatientTable() {
                   </div>
                 </td>
                 <td className="px-6 py-4 text-right">
-                  {getActionButton(patient.status)}
+                  <div className="flex justify-center items-center">{getActionButton(patient.status)}</div>
                 </td>
               </tr>
             ))}
@@ -173,7 +175,7 @@ export function PatientTable() {
       {/* Pagination */}
       <div className="bg-gray-50 px-6 py-4 border-t border-blue-100 flex items-center justify-between">
         <p className="text-sm text-blue-600">
-          Showing 6 of 60 total cases
+          Showing 5 of 60 total cases
         </p>
         
         <div className="flex items-center gap-2">
